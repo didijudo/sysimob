@@ -2,17 +2,17 @@
 
 /**
  * Classe para representar o Objeto tb_perfil
- *
+ * Os metodos com o "_" são os campos chaves da tabela
  * @author Anderson Faro
  */
 class EntidadePerfil {
     
-    private $cdPerfil;
+    private $_cdPerfil;
     private $dsPerfil;
     private $flAtivo;
-
+    
     public function setCdPerfil($cdPerfil) {
-        $this->cdPerfil = $cdPerfil;
+        $this->_cdPerfil = $cdPerfil;
     }
 
     public function setDsPerfil($dsPerfil) {
@@ -23,6 +23,11 @@ class EntidadePerfil {
         $this->flAtivo = $flAtivo;
     }
 
+    //Metodo para retornar o valor chave
+    public function _getCdPerfil() {
+        return $this->_cdPerfil;
+    }
+    
     public function getCdPerfil() {
         return $this->cdPerfil;
     }
@@ -34,6 +39,6 @@ class EntidadePerfil {
     public function getFlPerfil() {
         return $this->flAtivo;
     }
-
+    
 }
 ?>

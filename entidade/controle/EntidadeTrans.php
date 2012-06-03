@@ -2,29 +2,33 @@
 
 /**
  * Classe para controle da transação
- *
+ * Os metodos com o "_" são os campos chaves da tabela
  * @author Anderson Faro
  */
 class EntidadeTrans {
-    private $cdTrans;
+    private $_cdTrans;
     private $dsTrans;
     private $flAtiva;
 
 
     public function setCdTrans($cdTrans) {
-        $this->cdTrans = $cdTrans;
+        $this->_cdTrans = $cdTrans;
     }
 
     public function setDsTrans($dsTrans) {
         $this->dsTrans = $dsTrans;
     }
 
-    public function setFlTrans($flTrans) {
-        $this->flTrans = $flTrans;
+    public function setFlTrans($flAtiva) {
+        $this->flAtiva = $flAtiva;
     }
 
     public function getCdTrans() {
-        return $this->cdTrans;
+        return $this->_cdTrans;
+    }
+    
+    public function _getCdTrans() {
+        return $this->_cdTrans;
     }
 
     public function getDsTrans() {
@@ -32,7 +36,7 @@ class EntidadeTrans {
     }
 
     public function getFlTrans() {
-        return $this->flTrans;
+        return $this->flAtiva;
     }
 }
 ?>

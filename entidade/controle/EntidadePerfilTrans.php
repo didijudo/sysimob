@@ -2,27 +2,27 @@
 
 /**
  * Classe para representar o Objeto tb_perfil_trans
- *
+ * Os metodos com o "_" são os campos chaves da tabela
  * @author Anderson Faro
  */
 class EntidadePerfilTrans {
 
-    private $cdPerfil;
-    private $cdTrans;
+    private $_cdPerfil;
+    private $_cdTrans;
     private $flInserir;
     private $flAlterar;
     private $flExcluir;
     private $flConsultar;
+    
+    public function setCdTrans($cdTrans) {
+        $this->_cdTrans = $cdTrans;
+    }
 
     public function setCdPerfil($cdPerfil) {
-        $this->cdPerfil = $cdPerfil;
+        $this->_cdPerfil = $cdPerfil;
     }
-
-    public function setCdTrans($cdTrans) {
-        $this->cdTrans = $cdTrans;
-    }
-
-    public function setCdPerfil($flInserir) {
+    
+    public function setFlInserir($flInserir) {
         $this->flInserir = $flInserir;
     }
 
@@ -45,8 +45,16 @@ class EntidadePerfilTrans {
     public function getCdTrans() {
         return $this->cdTrans;
     }
+    
+    public function _getCdTrans() {
+        return $this->_cdTrans;
+    }
 
-    public function getCdPerfil() {
+    public function _getCdPerfil() {
+        return $this->_cdPerfil;
+    }
+    
+    public function getFlInserir() {
         return $this->flInserir;
     }
 
