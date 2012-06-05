@@ -14,6 +14,8 @@ class EntidadePerfilTrans {
     private $flExcluir;
     private $flConsultar;
     
+    function __construct() {}
+    
     public function setCdTrans($cdTrans) {
         $this->_cdTrans = $cdTrans;
     }

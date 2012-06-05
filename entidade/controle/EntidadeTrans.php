@@ -10,6 +10,7 @@ class EntidadeTrans {
     private $dsTrans;
     private $flAtiva;
 
+    function __construct() {}
 
     public function setCdTrans($cdTrans) {
         $this->_cdTrans = $cdTrans;

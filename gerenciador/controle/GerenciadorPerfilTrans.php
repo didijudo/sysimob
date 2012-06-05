@@ -4,25 +4,34 @@
  *
  * @author Anderson Faro
  */
+include '../../dao/controle/DAOPerfilTrans.php';
 class GerenciadorPerfilTrans {
     
-    private $daoPerfilTrans = null;
+    //private $daoPerfilTrans = null;
     
     function __construct() {
-        $this->daoPerfilTrans = new DAOPerfilTrans();
+        //$this->daoPerfilTrans = new DAOPerfilTrans();
     }
 
 
     public function inserir($entidade) {
-        $this->daoPerfilTrans->inserir($entidade);
+        $daoPerfilTrans = new DAOPerfilTrans();
+        $daoPerfilTrans->inserir($entidade);
     }
     
     public  function atualizar($entidade) {
-        $this->daoPerfilTrans->atualizar($entidade);
+        $daoPerfilTrans = new DAOPerfilTrans();
+        $daoPerfilTrans->atualizar($entidade);
+    }
+    
+    public function deleteKey($entidade) {
+        $daoPerfilTrans = new DAOPerfilTrans();
+        $daoPerfilTrans->deleteKey($entidade);
     }
     
     public function consultarKey($entidade) {
-        $this->daoPerfilTrans->consultarKey($entidade);
+        $daoPerfilTrans = new DAOPerfilTrans();
+        return $daoPerfilTrans->consultarKey($entidade);
     }
     
 }

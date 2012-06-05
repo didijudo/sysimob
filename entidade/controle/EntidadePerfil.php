@@ -11,6 +11,9 @@ class EntidadePerfil {
     private $dsPerfil;
     private $flAtivo;
     
+    function __construct() {}
+
+
     public function setCdPerfil($cdPerfil) {
         $this->_cdPerfil = $cdPerfil;
     }
@@ -23,7 +26,6 @@ class EntidadePerfil {
         $this->flAtivo = $flAtivo;
     }
 
-    //Metodo para retornar o valor chave
     public function _getCdPerfil() {
         return $this->_cdPerfil;
     }

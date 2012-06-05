@@ -4,26 +4,30 @@
  *
  * @author Anderson Faro
  */
+include_once '../ad/OperacaoBase.php';
 class DAOPerfil {
     
-    private $operacao = null; 
-    
-    function __construct() {
-        $this->operacao = new OperacaoBase();
+    public function __construct() {
+        echo 'Testando DAOPerfil';
     }
     
     public function inserir($pEntidade) {
-        $opr = $this->operacao;
+        $opr = new OperacaoBase();
         $opr->inserir("tb_perfil", $pEntidade, "perfil");
     }
     
     public function atualizar($pEntidade) {
-        $opr = $this->operacao;
+        $opr = new OperacaoBase();
         $opr->inserir("tb_perfil", $pEntidade, "perfil");
     }
     
+    public function deleteKey($pEntidade) {
+        $opr = new OperacaoBase();
+        $opr->deleteKey("tb_perfil", $pEntidade, "perfil");
+    }
+    
     public function consultarKey($pEntidade) {
-        $opr = $this->operacao;
+        $opr = new OperacaoBase();
         return $opr->consultarKey("tb_perfil", $pEntidade, "perfil");
     }
     

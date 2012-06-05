@@ -12,6 +12,8 @@ class EntidadeUsuario {
     private $pwdUsuario;
     private $flAtivo;
     
+    function __construct() {}
+    
     public function setCpf($cdCpf) {
         $this->_cdCpf = $cdCpf;
     }
