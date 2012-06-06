@@ -41,11 +41,11 @@ class EntidadePerfilTrans {
     }
 
     public function getCdPerfil() {
-        return $this->cdPerfil;
+        return $this->_cdPerfil;
     }
 
     public function getCdTrans() {
-        return $this->cdTrans;
+        return $this->_cdTrans;
     }
     
     public function _getCdTrans() {

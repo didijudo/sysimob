@@ -4,15 +4,10 @@
  *
  * @author Anderson Faro
  */
-include '../../dao/controle/DAOPerfilTrans.php';
+include 'dao/controle/DAOPerfilTrans.php';
 class GerenciadorPerfilTrans {
     
-    //private $daoPerfilTrans = null;
-    
-    function __construct() {
-        //$this->daoPerfilTrans = new DAOPerfilTrans();
-    }
-
+    function __construct() {}
 
     public function inserir($entidade) {
         $daoPerfilTrans = new DAOPerfilTrans();

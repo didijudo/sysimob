@@ -4,16 +4,20 @@
  *
  * @author Anderson Faro
  */
-include_once '../../dao/controle/DAOPerfil.php';
+//include_once '/var/www/html/sysimob/dao/controle/DAOPerfil.php';
+include_once 'dao/controle/DAOPerfil.php';
 //@include_once (__dir);
 class GerenciadorPerfil {
     //$daoPerfil = null;
-    function __construct() {}
+    function __construct() {
+        //echo "Testando constructor";
+        //echo __DIR__;
+        //ini_set('include_path', '.:/var/www/html/sysimob/');
+    }
 
     public function inserir($entidade) { 
         
         $daoPerfil = new DAOPerfil();
-        echo "Testando";
         $daoPerfil->inserir($entidade);
     }
     

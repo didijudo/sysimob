@@ -4,14 +4,10 @@
  *
  * @author Anderson Faro
  */
-include '../../dao/controle/DAOUsuario.php';
+include_once 'dao/controle/DAOUsuario.php';
 class GerenciadorUsuario {
     
-    //private $daoUsuario = null;
-    
-    function __construct() {
-        //$this->daoUsuario = new DAOUsuario();
-    }
+    function __construct() {}
 
 
     public function inserir($entidade) {

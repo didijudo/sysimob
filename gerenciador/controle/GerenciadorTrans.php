@@ -4,15 +4,10 @@
  *
  * @author Anderson Faro
  */
-include '../../dao/controle/DAOTrans.php';
+include 'dao/controle/DAOTrans.php';
 class GerenciadorTrans {
     
-    //private $daoTrans = null;
-    
-    function __construct() {
-       // $this->daoTrans = new DAOTrans();
-    }
-
+    function __construct() {}
 
     public function inserir($entidade) {
         $daoTrans = new DAOTrans();

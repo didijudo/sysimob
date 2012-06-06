@@ -31,7 +31,7 @@ class EntidadePerfil {
     }
     
     public function getCdPerfil() {
-        return $this->cdPerfil;
+        return $this->_cdPerfil;
     }
 
     public function getDsPerfil() {

@@ -35,7 +35,7 @@ class EntidadeUsuario {
     }
     
     public function getCpf() {
-        return $this->cdCpf;
+        return $this->_cdCpf;
     }
     
     public function _getCpf() {
