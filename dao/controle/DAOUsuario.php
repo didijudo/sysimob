@@ -60,9 +60,10 @@ class DAOUsuario {
             $query = "SELECT * FROM perfil.tb_usuario WHERE cpfUsuario = $1";
             $conexao = new Conexao();
             $conAtiva   = $conexao->getConexao();
-            $param = $this->parametros($pEntidade);
-            pg_query_params($conAtiva, $query, $param); 
-            $conexao->fechar();            
+            $param = $this->parametros($pEntidade, "C");
+            $resultado = pg_query_params($conAtiva, $query, $param); 
+            $conexao->fechar();    
+            return pg_fetch_all($resultado);
         } catch (Exception $err) {
             throw new Exception("Erro:\n".$err->getMessage());
         }

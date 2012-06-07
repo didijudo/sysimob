@@ -58,9 +58,10 @@ class DAOTrans {
             $query = "SELECT * FROM perfil.tb_trans WHERE cdTrans = $1";
             $conexao = new Conexao();
             $conAtiva   = $conexao->getConexao();
-            $param = $this->parametrosPerfil($pEntidade);
-            pg_query_params($conAtiva, $query, $param); 
-            $conexao->fechar();            
+            $param = $this->parametrosPerfil($pEntidade, "C");
+            $resultado = pg_query_params($conAtiva, $query, $param); 
+            $conexao->fechar();
+            return pg_fetch_all($resultado);
         } catch (Exception $err) {
             throw new Exception("Erro:\n".$err->getMessage());
         }

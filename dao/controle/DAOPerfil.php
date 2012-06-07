@@ -58,10 +58,11 @@ class DAOPerfil { //extends OperacaoBase {
             $query = "SELECT * FROM perfil.tb_perfil WHERE cdperfil = $1";
             $conexao = new Conexao();
             $conAtiva   = $conexao->getConexao();
-            $param = $this->parametrosPerfil($pEntidade);
+            $param = $this->parametrosPerfil($pEntidade, "C");
             //pg_prepare($conAtiva, "selectPerfil", $query);
-            pg_query_params($conAtiva, $query, $param); 
-            $conexao->fechar();            
+            $resultado = pg_query_params($conAtiva, $query, $param); 
+            $conexao->fechar();  
+            return pg_fetch_all($resultado);
         } catch (Exception $err) {
             throw new Exception("Erro:\n".$err->getMessage());
         }
