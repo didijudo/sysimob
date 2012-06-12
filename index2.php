@@ -17,8 +17,8 @@
     		</div>
     		
     		<div class="boxF push-5 span-15 last">
-    			<a href="{#link1}" class="prepend-2 append-2">Home</a>
-    			<a href="{#link2}" class="append-2">Cadastrar</a>
+    			<a href=".pdf" class="prepend-2 append-2">Home</a>
+    			<a href=".doc" class="append-2">Cadastrar</a>
     			<a href="{#link3}" class="append-2">Listar</a>
     			<a href="{#link4}" class="append-2 last">Visitar</a>
     		</div>

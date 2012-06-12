@@ -1,38 +1,17 @@
 
 <?php
 
-include_once 'gerenciador/controle/GerenciadorPerfil.php';
-include_once 'entidade/controle/EntidadePerfil.php';
+include_once 'util/Validadores.php';
 
+$validador = new Validadores();
+$cpf = "32176534561";
+$cnpj = "17282647000100"; //17282647000156";
 
-$dsPerfil = $_POST['dsPerfil'];
-$flAtivo = $_POST['flAtivo'];
+echo "CPF => ";
+var_dump( $validador->validarCPF($cpf) );
 
-$entPerfil = new EntidadePerfil();
+echo "<br/><br/> CNPJ =>";
+var_dump( $validador->validarCNPJ($cnpj));
 
-$entPerfil->setDsPerfil($dsPerfil);
-$entPerfil->setFlPerfil($flAtivo);
-
-//echo "Descricao: ".$entPerfil->getDsPerfil()."<br/>";
-//echo "FlAtivo: ".$entPerfil->getFlPerfil()."<br/>";
-
-$gerPerfil = new GerenciadorPerfil();
-//echo 'Testando gerneciador ...';
-$gerPerfil->inserir($entPerfil);
-//echo "Testando<br/>";
-//echo $dsPerfil."<br/>";
-//echo $flAtivo."<br/>";
-
-
-
-/*
-
-
-$entPerfil->setDsPerfil($_POST[dsPerfil]);
-$entPerfil->setFlPerfil($_POST[flAtivo]);
-
-$gerPerfil->inserir($entPerfil);
-
- */
 
 ?>

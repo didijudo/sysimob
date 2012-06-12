@@ -14,7 +14,8 @@ class DAOSessao {
                     from perfil.tb_usuario u
                         join perfil.tb_perfil p on (p.cdPerfil = u.cdPerfil)
                         join perfil.tb_perfil_trans pt on (pt.cdPerfil = p.cdPerfil)
-                    where u.cpfUsuario = $1 and u.FlAtivo = '1' ";
+                        join perfil.tb_trans ts on (ts.cdTrans = pt.cdTrans)
+                    where u.cpfUsuario = $1 and u.FlAtivo = '1' and ts.flAtiva = '1' ";
         $con = new Conexao();
         $conAtiva = $con->getConexao();
         $resultado = pg_query_params($conAtiva, $query, $param);
