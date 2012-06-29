@@ -1,11 +1,8 @@
 <?php
-class LoginController extends Controller {
-	
+class LoginController extends SysimobController {
+  $this->javascript[] = 'novoJavascript';
+
 	public function processRequest(){
-		$target = $this->url('/home');
-		$nome = $_POST['nome'];
-		echo $nome.'<br/>';
-		echo $this->getRequest();
-		
+			
 	}
 }

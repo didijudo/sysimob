@@ -1,8 +1,8 @@
 <?php
 class SysimobController extends Controller{
 	
-	protected $javascript = array();
-	protected $css = array('layout');
+	public $javascript = array();
+	public $css = array();
 	
 	/*
 	 * Monta todo o layout
@@ -11,22 +11,25 @@ class SysimobController extends Controller{
 		$html = 
 			'<html>
 				<head>
-					<title>'.self::setTitulo().'</title>'.
-					self::setJs().
-					self::setCss().
+					<title>'.$this->setTitulo().'</title>'.
+					$this->setJs().
+					$this->setCss().
 				'</head>
-        <body>'.self::setBody().'</body>';
+        <body>'.$this->setBody().'</body>';
 		echo $html;		
 	}
 	
+  /*
+  * Monta o titulo 
+  */
 	public function setTitulo() {
-		return 'Vamos';
 	}
 
 
+  /*
+  * Monta o corpo 
+  */
   public function setBody() {
-    $html = 'HTML';
-    return $html;
   }
 
 	/*
@@ -43,7 +46,7 @@ class SysimobController extends Controller{
 		$html = '';
 		if(!empty($this->javascript)){
 			foreach ($this->javascript as $js) {
-		 	$html .= ('<script type="text/javascript" src="'.$this->url('/htdocs/js').'/'.$js.'.js"> </script>');	
+		 	$html .= ('<script type="text/javascript" src="'.$this->url('/htdocs/js/').$js.'.js"> </script>');	
 			}
 		}
 		return $html;
@@ -57,12 +60,13 @@ class SysimobController extends Controller{
 		if(!empty($this->css)){
 			foreach ($this->css as $css) {
 				$html .= ('<link rel="stylesheet" type="text/css" 
-						href="'.$this->url('/htdocs/css').'/'.$css.'.css"/>');
+						href="'.$this->url('/htdocs/css/').$css.'.css"/>');
 			}
 		}
 		return $html;
 	}
 	
-	
+  public function setRodape() {
+  }	
 	
 }

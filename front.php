@@ -42,12 +42,7 @@ if(!isset($controller)){
 	header('Status: 404 Not Found');
 }else{
 	$controller->processRequest();
-	$controller->setJS();
-  $controller->setCss();
 	$controller->setPagina();
-	
-	
-
 }
 
 
