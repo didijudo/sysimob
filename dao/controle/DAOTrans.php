@@ -72,6 +72,7 @@ class DAOTrans {
         $vet = array();
         switch ($tipo) {
             case "U":
+                echo "Testandoooo ...";
                 $vet['$1'] = $entidade->getCdTrans();
                 $vet['$2'] = $entidade->getDsTrans();
                 $vet['$3'] = $entidade->getFlTrans();

@@ -1,8 +1,8 @@
 <?php
 class SysimobController extends Controller{
 	
-	private $javascript = array('teste', 'vamos');
-	private $css = array('layout');
+	protected $javascript = array();
+	protected $css = array('layout');
 	
 	/*
 	 * Monta todo o layout
@@ -14,14 +14,21 @@ class SysimobController extends Controller{
 					<title>'.self::setTitulo().'</title>'.
 					self::setJs().
 					self::setCss().
-				'</head>';
+				'</head>
+        <body>'.self::setBody().'</body>';
 		echo $html;		
 	}
 	
 	public function setTitulo() {
 		return 'Vamos';
 	}
-	
+
+
+  public function setBody() {
+    $html = 'HTML';
+    return $html;
+  }
+
 	/*
 	 * Processa requisicao feita pela url
 	 */

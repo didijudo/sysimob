@@ -1,23 +1,9 @@
 
-CREATE SEQUENCE perfil.tb_trans_cdtrans_seq;
-
 CREATE TABLE perfil.tb_trans (
-                cdTrans INTEGER NOT NULL DEFAULT nextval('perfil.tb_trans_cdtrans_seq'),
+                cdTrans VARCHAR(30) NOT NULL,
                 dsTrans VARCHAR(100) NOT NULL,
                 flAtiva CHAR(1) NOT NULL,
                 CONSTRAINT trans_pk PRIMARY KEY (cdTrans)
-);
-
-
-ALTER SEQUENCE perfil.tb_trans_cdtrans_seq OWNED BY perfil.tb_trans.cdTrans;
-
-CREATE TABLE perfil.tb_menu (
-                cdMenu INTEGER NOT NULL,
-                cdTrans INTEGER,
-                nmMenu VARCHAR(20) NOT NULL,
-                nmLinkPagina VARCHAR(200),
-                cdMenuPai INTEGER,
-                CONSTRAINT menu_pk PRIMARY KEY (cdMenu)
 );
 
 
@@ -35,7 +21,7 @@ ALTER SEQUENCE perfil.cdperfil_seq OWNED BY perfil.tb_perfil.cdPerfil;
 
 CREATE TABLE perfil.tb_perfil_trans (
                 cdPerfil INTEGER NOT NULL,
-                cdTrans INTEGER NOT NULL,
+                cdTrans VARCHAR(30) NOT NULL,
                 flInserir CHAR(1) NOT NULL,
                 flAlterar CHAR(1) NOT NULL,
                 flExcluir CHAR(1) NOT NULL,
@@ -57,20 +43,6 @@ CREATE TABLE perfil.tb_usuario (
 ALTER TABLE perfil.tb_perfil_trans ADD CONSTRAINT tb_trans_tb_perfil_trans_fk
 FOREIGN KEY (cdTrans)
 REFERENCES perfil.tb_trans (cdTrans)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION
-NOT DEFERRABLE;
-
-ALTER TABLE perfil.tb_menu ADD CONSTRAINT tb_trans_tb_menu_fk
-FOREIGN KEY (cdTrans)
-REFERENCES perfil.tb_trans (cdTrans)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION
-NOT DEFERRABLE;
-
-ALTER TABLE perfil.tb_menu ADD CONSTRAINT tb_menu_tb_menu_fk
-FOREIGN KEY (cdMenuPai)
-REFERENCES perfil.tb_menu (cdMenu)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;

@@ -5,44 +5,49 @@
  */
 
 session_start();
-include 'application.php';
+include 'application_configuration.php';
+include 'lib/Controller.php';
+include 'lib/SysimobController.php';
 
-// $uri = explode('/',$_SERVER['REQUEST_URI']);
-$uri = explode('/',$_GET['key']);
-$controller;
-$response = null;
+$_GET['__key__'] = ($_GET['__key__'] != "") ? $_GET['__key__'] : 'home';
+$uri = explode('/',$_GET['__key__']);
+$controller_class = null;
+$controller = null;
 $num = count($uri);
 $path = ''; 
 
-if($uri[$num-1]!=''){
+
+if($num == 1) {
+	$path = $uri[0];
+	$controller_class = $map['/'.$uri[0]];
+}else {
 	
-		for($i = 0 ; $i < $num-1 ; $i++){
-			$path = $path.$uri[$i].'/';
+	for($i=0; $i< $num; $i++){
+		if($uri[$i]==''){
+		}else{
+			$path .= $uri[$i].'/';
 		}
-		
-		$controller = $map['/'.$uri[$num-1]] ;
-		require_once ($path.$controller.'.php');
-		$response = new $controller();
-
-}else if ( isset($uri[$num-2]) ){
-	if ($path == '')
-		$path = $uri[$num-2].'/';
-	
-	$controller = $map['/'.$uri[$num-2]] ;
-	require_once ($path.$controller.'.php');
-	$response = new $controller();
-
-}else{
-	$controller = $map['/home'];
-	require_once ('home/HomeController.php');
-	$response = new $controller;	
+	}
+	$controller_class = ($uri[$num-1] == '')? $map['/'.$uri[$num-2]] 
+    : $map['/'.$uri[$num-1]];
 }
 
-if($response==null){
+if($controller_class != ''){
+	require_once ('controller/'.$path.'/'.$controller_class.'.php');
+	$controller = new $controller_class();
+}
+
+if(!isset($controller)){
 	echo 'ERRO 404 - PÁGINA NÃO ENCONTRADA';
+	header('Status: 404 Not Found');
 }else{
-	$response->restRequest();
+	$controller->processRequest();
+	$controller->setJS();
+  $controller->setCss();
+	$controller->setPagina();
 	
+	
+
 }
 
 
