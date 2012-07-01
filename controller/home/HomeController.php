@@ -17,7 +17,7 @@ class HomeController extends SysimobController {
     return 'HOME';
   }
 
-  public function setBody() {
+  public function setConteudo() {
    $url = $this->url('/login');
    $html =
       '<form action="'.$url.'" method="post">

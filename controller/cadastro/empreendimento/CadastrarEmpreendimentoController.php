@@ -20,34 +20,34 @@ class CadastrarEmpreendimentoController extends SysimobController{
         }
     }
     
-    public function setBody() {
-        return $this->html = "<form action='#' method='post'>"
-                ."<div id='CadastrarEmpreendimento'>"
-                    ."<table>"
-                        ."<tr>"
-                            ."<td>Nome: </td>
-                            <td><input type='text' name='nmEmpreendimento'/></td>"
-                        ."</tr><tr>"
-                            ."<td>Descrição: </td>
-                            <td><textarea rows=3 cols=40 name='dsEmpreendimento'></textarea></td>"
-                        ."</tr><tr>"
-                        ."<td>Endereco: </td>
-                            <td><textarea rows=3 cols=40 name='dsEndereco'></textarea></td>"
-                        ."</tr><tr>"
-                        ."<td>Região: </td>
-                            <td><select name='dsRegiao'>
-                                <option value='N'>Norte</option>
-                                <option value='S'>Sul</option>
-                                <option value='L'>Leste</option>
-                                <option value='O'>Oeste</option>
-                            </select></td>"
-                        ."</tr><tr>"
-                            ."<td></td>"
-                            ."<td align='right'><input type='submit' name='btnCadastro' value='Cadastrar'/></td>"
-                        ."</tr>"
-                    ."</table>"
-                ."</div>"
-            ."</form>";
+    public function setConteudo() {
+        return $this->html = '<form action="#" method="post">'
+                .'<div id="CadastrarEmpreendimento">'
+                    .'<table>'
+                        .'<tr>'
+                            .'<td>Nome: </td>
+                            <td><input type="text" name="nmEmpreendimento"/></td>'
+                        .'</tr><tr>'
+                            .'<td>Descrição: </td>
+                            <td><textarea rows="3" cols="40" name="dsEmpreendimento"></textarea></td>'
+                        .'</tr><tr>'
+                        .'<td>Endereco: </td>
+                            <td><textarea rows="3" cols="40" name="dsEndereco"></textarea></td>'
+                        .'</tr><tr>'
+                        .'<td>Região: </td>
+                            <td><select name="dsRegiao">
+                                <option value="N">Norte</option>
+                                <option value="S">Sul</option>
+                                <option value="L">Leste</option>
+                                <option value="O">Oeste</option>
+                            </select></td>'
+                        .'</tr><tr>'
+                            .'<td></td>'
+                            .'<td align="right"><input type="submit" name="btnCadastro" value="Cadastrar"/></td>'
+                        .'</tr>'
+                    .'</table>'
+                .'</div>'
+            .'</form>';
     }
     
     private function submeter() {

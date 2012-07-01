@@ -26,10 +26,34 @@ class SysimobController extends Controller{
 	}
 
 
+  public function setTopo() {
+    $html = 
+      '<div class=" box span-20 last">
+        <div align="center">
+          TOPO
+        </div>
+       </div>';
+    return $html;
+  } 
+
+
+  public function setConteudo() {
+  }
+
+  public function setMenu() {
+  }
+
   /*
   * Monta o corpo 
   */
   public function setBody() {
+    $html=
+      '<div class="container">';
+    $html .= self::setTopo();
+    $html .= $this->setMenu();
+    $html .= $this->setConteudo();
+    $html .= '</div>';
+    return $html;
   }
 
 	/*
@@ -62,7 +86,19 @@ class SysimobController extends Controller{
 				$html .= ('<link rel="stylesheet" type="text/css" 
 						href="'.$this->url('/htdocs/css/').$css.'.css"/>');
 			}
-		}
+    }
+      $html .= 
+        '<link rel="stylesheet" href="'.$this->url('/htdocs/css').
+          '/blueprint/screen.css" type="text/css" media="screen, projection">';
+
+      $html .=     
+          '<link rel="stylesheet" href="'.$this->url('/htdocs/css').
+            '/blueprint/print.css" type="text/css" media="print">';
+    
+      $html .= 
+            '<!--[if lt IE 8]><link rel="stylesheet" href="'.$this->url('htdocs/css').
+              '/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->';
+		
 		return $html;
 	}
 	
