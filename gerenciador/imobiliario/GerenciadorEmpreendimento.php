@@ -30,6 +30,11 @@ class GerenciadorEmpreendimento {
         $dao = new DAOEmpreendimento();
         return $dao->consultarKey($entidade);
     }
+    
+    public function consultarFull() {
+        $dao = new DAOEmpreendimento();
+        return $dao->consultarFull();
+    }
 }
 
 ?>

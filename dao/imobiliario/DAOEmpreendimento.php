@@ -13,11 +13,25 @@ class DAOEmpreendimento {
     
     public function consultarKey(EntidadeEmpreendimento $eEmpreendimento) {
         try {
-            $query = "SELECT * FROM imob.tb_empreendimento WHERE idEmpreendimento = $1";
+            $query = "SELECT * FROM imob.tb_empreendimento WHERE idEmpreendimento = $1 ";
             $conexao = new Conexao();
             $conAtiva   = $conexao->getConexao();
             $param = $this->parametrosEmpreendimento($eEmpreendimento, "C");
             $resultado = pg_query_params($conAtiva, $query, $param); 
+            $conexao->fechar();
+            return pg_fetch_all($resultado);
+        } catch (Exception $err) {
+            throw new Exception("Erro:\n".$err->getMessage());
+        }
+    }
+    
+    public function consultarFull() {
+        try {
+            $query = "SELECT * FROM imob.tb_empreendimento ";
+            $conexao = new Conexao();
+            $conAtiva   = $conexao->getConexao();
+            //$param = $this->parametrosEmpreendimento($eEmpreendimento, "C");
+            $resultado = pg_query($conAtiva, $query); 
             $conexao->fechar();
             return pg_fetch_all($resultado);
         } catch (Exception $err) {
@@ -78,7 +92,7 @@ class DAOEmpreendimento {
         switch ($tipo) {
             case "I" :
                 $vet['$1'] = $eEmpreendimento->getNmEmpreendimento();
-                $vet['$2'] = $eEmpreendimento->getDsEmpreedimento();
+                $vet['$2'] = $eEmpreendimento->getDsEmpreendimento();
                 $vet['$3'] = $eEmpreendimento->getDsEndereco();
                 $vet['$4'] = $eEmpreendimento->getDsRegiao();
                 break;

@@ -21,8 +21,8 @@ class HomeController extends SysimobController {
    $url = $this->url('/login');
    $html =
       '<form action="'.$url.'" method="post">
-        <input type="submit" value="Enviar">
-      </form';
+        <p>Agora a magica acontece: <input type="submit" value="Enviar">            
+      </form>';
       return $html;
   }
 	

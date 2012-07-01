@@ -4,8 +4,8 @@
  <print-settings numCopies="1" zoom="1.0" pageNumbersPrinted="true" orientation="1" paperWidth="612.0" paperHeight="792.0" leftBorder="50.0" rightBorder="50.0" topBorder="50.0" bottomBorder="50.0" />
  <project-data-sources>
   <data-source id="DS0">
-   <property key="Logical" value="Conexao PostgreSQL" />
    <property key="Connection Type" value="PostgreSQL" />
+   <property key="Logical" value="Modelo de Dados" />
    <property key="JDBC URL" value="jdbc:postgresql://localhost:5432/SysImob" />
    <property key="UID" value="admin" />
    <property key="PWD" value="123456" />
@@ -34,7 +34,7 @@
     <column id="COL5" populated="true" UUID="e9d68d38-f0dd-4a6b-9b13-d6334cab58b7" autoIncrement="false" autoIncrementSequenceName="tb_empreendimento_dsEndereco_seq" defaultValue="" name="dsEndereco" nullable="0" physicalName="dsEndereco" precision="150" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL6" populated="true" UUID="351862e1-bc3a-4af3-9eb5-fdb4e8b8d0e8" autoIncrement="false" autoIncrementSequenceName="tb_empreendimento_dsRegiao_seq" defaultValue="" name="dsRegiao" nullable="0" physicalName="dsRegiao" precision="6" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL6" populated="true" UUID="351862e1-bc3a-4af3-9eb5-fdb4e8b8d0e8" autoIncrement="false" autoIncrementSequenceName="tb_empreendimento_dsRegiao_seq" defaultValue="" name="dsRegiao" nullable="0" physicalName="dsRegiao" precision="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
      <remarks></remarks>
     </column>
     </folder>
@@ -122,7 +122,7 @@ L/S -&gt; Leste/Sul</remarks>
    </relationship>
   </relationships>
  </target-database>
- <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="false" target-schema="imob"> </ddl-generator>
+ <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="true" target-schema="imob"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
  <play-pen zoom="1.0" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">

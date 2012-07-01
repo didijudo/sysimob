@@ -8,7 +8,7 @@
 class Conexao {
 
     private $host = "localhost";
-    private $user = "postgres";
+    private $user = "admin";
     private $pwd = "123456";
     private $dbname = "SysImob";
     private $con;

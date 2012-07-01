@@ -29,6 +29,11 @@ class GerenciadorBloco {
         $dao = new DAOBloco();
         return $dao->consultarKey($entidade);
     }
+    
+    public function consultarEmpreendimento($entidade) {
+        $dao = new DAOBloco();
+        return $dao->consultarEmpreendimento($entidade);
+    }
 }
 
 ?>

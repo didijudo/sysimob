@@ -17,7 +17,7 @@ class DAOBloco {
                         VALUES ($1, $2, $3)";
             $conexao = new Conexao();
             $conAtiva   = $conexao->getConexao();
-            $param = $this->parametrosEmpreendimento($eBloco, "I");
+            $param = $this->parametrosBloco($eBloco, "I");
             pg_prepare($conAtiva, "insertBloco", $query);
             pg_execute($conAtiva, "insertBloco", $param); 
             $conexao->fechar();
@@ -35,7 +35,7 @@ class DAOBloco {
                         and idEmpreendimento = $2";
             $conexao = new Conexao();
             $conAtiva   = $conexao->getConexao();
-            $param = $this->parametrosEmpreendimento($eBloco, "U");
+            $param = $this->parametrosBloco($eBloco, "U");
             pg_prepare($conAtiva, "updateBloco", $query);
             pg_execute($conAtiva, "updateBloco", $param); 
             $conexao->fechar();
@@ -50,7 +50,7 @@ class DAOBloco {
                         and idEMpreendimento = $2";
             $conexao = new Conexao();
             $conAtiva   = $conexao->getConexao();
-            $param = $this->parametrosEmpreendimento($eBloco, "D");
+            $param = $this->parametrosBloco($eBloco, "D");
             pg_prepare($conAtiva, "deleteTrans", $query);
             pg_execute($conAtiva, "deleteTrans", $param); 
             $conexao->fechar();
@@ -64,7 +64,7 @@ class DAOBloco {
             $query = "SELECT * FROM imob.tb_bloco WHERE idBloco = $1 and idEmpreendimento = $2";
             $conexao = new Conexao();
             $conAtiva   = $conexao->getConexao();
-            $param = $this->parametrosEmpreendimento($eBloco, "C");
+            $param = $this->parametrosBloco($eBloco, "C");
             $resultado = pg_query_params($conAtiva, $query, $param); 
             $conexao->fechar();
             return pg_fetch_all($resultado);
@@ -73,7 +73,21 @@ class DAOBloco {
         }
     }
     
-    private function parametrosEmpreendimento(EntidadeBloco $eBloco, $tipo) {
+    public function consultarEmpreendimento(EntidadeBloco $eBloco) {
+        try {
+            $query = "SELECT * FROM imob.tb_bloco WHERE idEmpreendimento = $1";
+            $conexao = new Conexao();
+            $conAtiva   = $conexao->getConexao();
+            $param = array('$1' => $eBloco->getIdEmpreendimeto());
+            $resultado = pg_query_params($conAtiva, $query, $param); 
+            $conexao->fechar();
+            return pg_fetch_all($resultado);
+        } catch (Exception $err) {
+            throw new Exception("Erro:\n".$err->getMessage());
+        }
+    }
+    
+    private function parametrosBloco(EntidadeBloco $eBloco, $tipo) {
         $vet = array();
         switch ($tipo) {
             case "I" :

@@ -1,6 +1,7 @@
 <?php
 $map = array(
 	'/home'		=> 'HomeController',
-  '/login' => 'LoginController',
-  '/consulta/consultaAvancada' => 'ConsultaAvancadaController',
+        '/login' => 'LoginController',
+        '/consulta' => 'ConsultaAvancadaController',
+        '/empreendimento' => 'CadastrarEmpreendimentoController',
 );

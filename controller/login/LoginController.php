@@ -1,6 +1,6 @@
 <?php
 class LoginController extends SysimobController {
-  $this->javascript[] = 'novoJavascript';
+  //$this->javascript = 'novoJavascript';
 
 	public function processRequest(){
 			
