@@ -16,24 +16,22 @@ $controller = null;
 $num = count($uri);
 $path = ''; 
 
-
 if($num == 1) {
-	$path = $uri[0];
+	$path = $uri[0].'/';
 	$controller_class = $map['/'.$uri[0]];
 }else {
 	
-	for($i=0; $i< $num; $i++){
-		if($uri[$i]==''){
-		}else{
-			$path .= $uri[$i].'/';
-		}
-	}
-	$controller_class = ($uri[$num-1] == '')? $map['/'.$uri[$num-2]] 
-    : $map['/'.$uri[$num-1]];
+  	for($i=0; $i<= $num-1; $i++){
+	  	if($uri[$i]==''){
+	  	}else{
+		  	$path .= $uri[$i].'/';
+	  	}
+  	}
+  	$controller_class = ($uri[$num-1] == '')? $map['/'.$uri[$num-2]] 
+      : $map['/'.$uri[$num-1]];
 }
-
 if($controller_class != ''){
-	require_once ('controller/'.$path.'/'.$controller_class.'.php');
+	require_once ('controller/'.$path.$controller_class.'.php');
 	$controller = new $controller_class();
 }
 
