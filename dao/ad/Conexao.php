@@ -7,16 +7,17 @@
  */
 class Conexao {
 
-    private $host = "localhost";
-    private $user = "admin";
-    private $pwd = "123456";
-    private $dbname = "SysImob";
-    private $con;
+    private $host = "localhost:5432";
+    private $user = "postgres";
+    private $pwd = "diegorabelodefranca";
+    private $dbname = "sysimob";
+    private $con = null;
 
     function __construct(){} 
 
     private function abrir(){
         try {
+			echo'conexao<br>';
             $this->con = @pg_connect("host=$this->host user=$this->user "
                     ."password=$this->pwd dbname=$this->dbname");
             return $this->con;
@@ -34,7 +35,7 @@ class Conexao {
     }
     
     public function situacao() {
-        if(pg_connection_status($this->con) === PGSQL_CONNECTION_OK){
+        if(@pg_connection_status($this->con) == PGSQL_CONNECTION_OK){
             echo "<h3>O sistema não está conectado à  [$this->dbname] em [$this->host].</h3>";
             exit;
         } else {
@@ -43,9 +44,13 @@ class Conexao {
     }
     
     public function getConexao() {
-        if (pg_connection_status($this->con) === PGSQL_CONNECTION_OK) {
+		echo'getconexao<br>';
+		echo @pg_connection_status($this->con);
+        if (pg_connection_status($this->con) == PGSQL_CONNECTION_OK) {			
+			echo'conexao ativa<br>';
             return $this->con;
         } else {
+			echo'abrindo conexao<br>';
             return $this->abrir();
         }
     }

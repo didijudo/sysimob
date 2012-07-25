@@ -57,11 +57,14 @@ class DAOUsuario {
     
     public function consultarKey(EntidadeUsuario $pEntidade) {
         try {
+			echo 'DAOconsultarKey'.'<br>';
             $query = "SELECT * FROM perfil.tb_usuario WHERE cpfUsuario = $1";
             $conexao = new Conexao();
             $conAtiva   = $conexao->getConexao();
             $param = $this->parametros($pEntidade, "C");
+			echo 'a<br>';
             $resultado = pg_query_params($conAtiva, $query, $param); 
+			echo 'b<br>';
             $conexao->fechar();    
             return pg_fetch_all($resultado);
         } catch (Exception $err) {

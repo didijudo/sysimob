@@ -20,8 +20,8 @@ class CadastrarEmpreendimentoController extends SysimobController{
         }
     }
     
-    public function setConteudo() {
-        return $this->html = '<form action="#" method="post">'
+    public function setContent() {
+        return '<form action="#" method="post">'
                 .'<div id="CadastrarEmpreendimento">'
                     .'<table>'
                         .'<tr>'
@@ -61,7 +61,7 @@ class CadastrarEmpreendimentoController extends SysimobController{
         $ger->inserir($ent);
     }
     
-    public function setTitulo() {
+    public function setTitle() {
         return '..:: Cadastrar Empreendimento ::..';
     }
 }

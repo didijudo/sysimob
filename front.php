@@ -40,7 +40,7 @@ if(!isset($controller)){
 	header('Status: 404 Not Found');
 }else{
 	$controller->processRequest();
-	$controller->setPagina();
+	$controller->montarPagina();
 }
 
 

@@ -25,7 +25,8 @@ class SysimobController extends Controller{
 
 	public function setHead() {
 	  $html = 	
-	  			'<title>'.$this->setTitle().'</title>'
+	  			 '<title>'.$this->setTitle().'</title>'
+				.'<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />'
 						 .$this->setJs()
 						 .$this->setCss();
 	  return $html;
@@ -53,11 +54,31 @@ class SysimobController extends Controller{
 						<h1 class="center textheader">AC Engenharia</h1>
     	            	<h3 class="right textslogan">Arte em construir...</h3>
 					</div>
-       			</div>';
+       			 </div>';
 		return $html;
 	}
 	
 	public function setContent(){
+		$html = '<div class="center row" >
+					<div class="span3 row">'
+					.$this->setNews().	
+					'</div>			
+                	 <div class="span9" style="padding-top:17px">'
+                		.$this->setInfoContent().
+                	'</div>       		
+        		 </div>';
+		return $html;
+	}
+
+		
+	public function setNews() {
+		$html =
+				'<h6 class="news">Últimos Empreendimentos...</h6>
+				 <div class="sysmobnews"><p>dasdysaduasyg dasyugdsuaygd</p></div>';
+		return $html;
+	}
+	
+	public function setInfoContent() {
 		$html = '';
 		return $html;
 	}
@@ -75,14 +96,12 @@ class SysimobController extends Controller{
 	*/
 	public function setBody() {
 		$html= 
-	  	'<form name="frmPrincipal">
-    		<div class="container" id="container">
-				<div class="row">'.$this->setMenu().'</div>  
-				<div class="row">'.$this->setTop().'</div>
-				<div class="row">'.$this->setContent().'</div>
-				<div class="row">'.$this->setFooter().'</div>  
-			</div>
-    	</form>';
+			   '<div class="container" id="container">
+					<div class="row">'.$this->setMenu().'</div>  
+					<div class="row">'.$this->setTop().'</div>
+					<div class="row">'.$this->setContent().'</div>
+					<div class="row">'.$this->setFooter().'</div>  
+				</div>';
 		return $html;
 	}
 
