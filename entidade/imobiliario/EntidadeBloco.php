@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Classe com os campos que compoem a tabela tb_bloco
+ * Classe com os campos que compoem a tabela tb_blo_bloco
  *
  * @author Anderson Faro
  */
@@ -9,40 +9,34 @@ class EntidadeBloco {
     
     function __construct() {}
     
-    private $_idBloco;
-    private $_idEmpreendimento;
-    private $cdBloco;
-    private $stBloco;
+    private $blo_id;
+    private $emp_id;
+    private $blo_status;
     
-    public function setIdEmpreendimento($idEmpreendimeto){
-        $this->_idEmpreendimento = $idEmpreendimeto;
+
+    public function setBloId($blo_id) {
+    	$this->blo_id = $blo_id;
+    }
+    
+    public function setEmpId($emp_id){
+        $this->emp_id = $emp_id;
     }
 
-    public function setCdBloco($cdBloco) {
-        $this->cdBloco = $cdBloco;
-    }
-    
-    public function setStBloco($stBloco) {
-        $this->stBloco = $stBloco;
+    public function setBloStatus($blo_status) {
+        $this->blo_status = $blo_status;
     }
 
-    public function _getIdBloco() {
-        return $this->_idBloco;
+    public function getBloId() {
+        return $this->blo_id;
     }
     
     
-    public function getIdEmpreendimeto() {
-        return $this->_idEmpreendimento;
+    public function getEmpId() {
+        return $this->emp_id;
     }
     
-    public function getCdBloco() {
-        return $this->cdBloco;
-    }
-    
-    public function  getStBloco() {
-        return $this->stBloco;
+    public function  getBloStatus() {
+        return $this->blo_status;
     }
     
 }
-
-?>

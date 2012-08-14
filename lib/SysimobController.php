@@ -1,4 +1,6 @@
 <?php
+
+include_once 'util/Constante.php';
 class SysimobController extends Controller{
 	
 	public $javascript = array();
@@ -26,23 +28,13 @@ class SysimobController extends Controller{
 	public function setHead() {
 	  $html = 	
 	  			 '<title>'.$this->setTitle().'</title>'
-				.'<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />'
+				.'<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />'
 						 .$this->setJs()
 						 .$this->setCss();
 	  return $html;
 	} 
-
+	
 	public function setMenu() {
-		$html = 
-		'<div id="menu">
-			<ul class="nav nav-tabs">
-				<li><a class="active" href="#">Home</a></li>
-				<li><a  href="#">Cadastrar</a></li>
-				<li><a  href="#">Consultar</a></li>
-				<li><a  href="#">Contato</a></li>
-			</ul>
-		</div>';
-		return $html;				
 	}
 	
 	

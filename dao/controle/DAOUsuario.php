@@ -12,8 +12,8 @@ class DAOUsuario {
     
     public function inserir(EntidadeUsuario $pEntidade) {
         try {
-            $query = "INSERT INTO perfil.tb_usuario (cpfUsuario, cdPerfil, nmUsuario,".
-                    "pwdUsuario, flAtivo) VALUES ($1, $2, $3, $4, $5)";
+            $query = "INSERT INTO sysimob.tb_usu_usuario (usu_cpf, per_codigo, usu_nome,".
+                    "usu_password, usu_flativo) VALUES ($1, $2, $3, $4, $5)";
             $conexao = new Conexao();
             $conAtiva   = $conexao->getConexao();
             $param = $this->parametros($pEntidade, "I");
@@ -27,8 +27,8 @@ class DAOUsuario {
     
     public function atualizar(EntidadeUsuario $pEntidade) {
         try {
-            $query = "UPDATE perfil.tb_usuario SET cdPerfil = $2, nmUsuario = $3, ".
-                    "pwdUsuario = $4, flAtivo = $5 WHERE cpfUsuario = $1";
+            $query = "UPDATE sysimob.tb_usu_usuario SET per_codigo = $2, usu_nome = $3, ".
+                    "usu_password = $4, usu_flativo = $5 WHERE usu_cpf = $1";
             $conexao = new Conexao();
             $conAtiva   = $conexao->getConexao();
             $param = $this->parametros($pEntidade, "U");
@@ -42,11 +42,10 @@ class DAOUsuario {
     
     public function deleteKey(EntidadeUsuario $pEntidade) {
         try {
-            $query = "DELETE FROM perfil.tb_usuario WHERE cpfUsuario = $1";
+            $query = "DELETE FROM sysimob.tb_usu_usuario WHERE usu_cpf = $1";
             $conexao = new Conexao();
             $conAtiva   = $conexao->getConexao();
             $param = $this->parametros($pEntidade, "D");
-            //var_dump($param);
             pg_prepare($conAtiva, "deleteUsuario", $query);
             pg_execute($conAtiva, "deleteUsuario", $param); 
             $conexao->fechar();
@@ -57,36 +56,32 @@ class DAOUsuario {
     
     public function consultarKey(EntidadeUsuario $pEntidade) {
         try {
-			echo 'DAOconsultarKey'.'<br>';
-            $query = "SELECT * FROM perfil.tb_usuario WHERE cpfUsuario = $1";
+            $query = "SELECT * FROM sysimob.tb_usu_usuario WHERE usu_cpf = $1 and usu_password = $2";
             $conexao = new Conexao();
             $conAtiva   = $conexao->getConexao();
             $param = $this->parametros($pEntidade, "C");
-			echo 'a<br>';
-            $resultado = pg_query_params($conAtiva, $query, $param); 
-			echo 'b<br>';
+			var_dump($param);
+            $resultado = @pg_query_params($conAtiva, $query, $param); 
             $conexao->fechar();    
-            return pg_fetch_all($resultado);
+            return @pg_fetch_all($resultado);
         } catch (Exception $err) {
             throw new Exception("Erro:\n".$err->getMessage());
         }
     }
 
-
     public function parametros(EntidadeUsuario $entidade, $tipo) {
         $vet = array();
         if ($tipo == "U" || $tipo == "I") {
-            $vet['$1'] = $entidade->getCpf();
-            $vet['$2'] = $entidade->getCdPerfil();
-            $vet['$3'] = $entidade->getNmUsuario();
-            $vet['$4'] = $entidade->getPwdUsuario();
-            $vet['$5'] = $entidade->getFlAtivo();
-        } else {
-            $vet['$1'] = $entidade->getCpf();
+            $vet['$1'] = $entidade->getUsuCpf();
+            $vet['$2'] = $entidade->getPerCodigo();
+            $vet['$3'] = $entidade->getUsuNome();
+            $vet['$4'] = $entidade->getUsuPassword();
+            $vet['$5'] = $entidade->getUsuFlAtivo();
+		} else {
+            $vet['$1'] = $entidade->getUsuCpf();
+			$vet['$2'] = $entidade->getUsuPassword();
         }
         return $vet;
     }
     
 }
-
-?>

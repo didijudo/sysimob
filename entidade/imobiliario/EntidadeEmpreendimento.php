@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Entidade com os dados da tabela tb_empreendimeto
+ * Entidade com os dados da tabela tb_emp_empreendimeto
  *
  * @author Anderson Faro
  */
@@ -9,48 +9,50 @@ class EntidadeEmpreendimento {
     
     function __construct() {}
     
-    private $_idEnmpreendimento;
-    private $nmEmpreendimento;
-    private $dsEmpreendimento;
-    private $dsEndereco;
-    private $dsRegiao;
+    private $emp_id;
+    private $emp_nome;
+    private $emp_descricao;
+    private $emp_localizacao;
+    private $emp_dtlancamento;
     
-    public function setNmEmpreendimento($nmEmpreendimento) {
-        $this->nmEmpreendimento = $nmEmpreendimento;
+	public function setEmpId($emp_id) {
+        $this->emp_id = $emp_id;
+    }
+	
+    public function setEmpNome($emp_nome) {
+        $this->emp_nome = $emp_nome;
     }
     
-    public function setDsEmpreendimento($dsEmpreendimento) {
-        $this->dsEmpreendimento = $dsEmpreendimento;
+    public function setEmpDescricao($emp_descricao) {
+        $this->emp_descricao= $emp_descricao;
     }
     
-    public function setDsEndereco($dsEmpreendimento) {
-        $this->dsEndereco = $dsEmpreendimento;
+    public function setEmpLocalizacao($emp_localizacao) {
+        $this->emp_localizacao = $emp_localizacao;
     }
     
-    public function setDsRegiao($dsRegiao) {
-        $this->dsRegiao = $dsRegiao;
+    public function setEmpDtLancamento($emp_dtlancamento) {
+        $this->emp_dtlancamento = $emp_dtlancamento;
     }
 
-    public function _getIdEmpreendimento() {
-        return $this->_idEnmpreendimento;
+    public function getEmpId() {
+        return $this->emp_id;
     }
     
-    public function getNmEmpreendimento() {
-        return $this->nmEmpreendimento;
+    public function getEmpNome() {
+        return $this->emp_nome;
     }
     
-    public function getDsEmpreendimento() {
-        return $this->dsEmpreendimento;
+    public function getEmpDescricao() {
+        return $this->emp_descricao;
     }
     
-    public function getDsEndereco() {
-        return $this->dsEndereco;
+    public function getEmpLocalizacao() {
+        return $this->emp_localizacao;
     }
     
-    public function getDsRegiao() {
-        return $this->dsRegiao;
+    public function getEmpDtLancamento() {
+        return $this->emp_dtlancamento;
     }
-    
 }
 
-?>

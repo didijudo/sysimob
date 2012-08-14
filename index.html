@@ -7,22 +7,53 @@ and open the template in the editor.
     <head>
         <title>Pagina Inicial</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="./htdocs/css/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+				  <link href="./htdocs/css/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+				  <link href="./htdocs/css/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" type="text/css">
+				  <link href="./htdocs/css/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
     </head>
-    <body>
-        
-        <form action="principal.php" name="frmIndex" method="post">
-           <tr><td align="right"><input type="submit" name="btnSubmit" value="Submit"/><tr/>
-             <!--<table>
-                <tr><td>Cd Trans: <input type="text" name="cdTrans"/></td></tr>
-                <tr><td>Cd Perfil: <input type="text" name="cdPerfil"/></td></tr>
-                 <tr><td>Nome: <input type="text" name="nmUsuario"/></td></tr>
-                <tr><td>Senha: <input type="text" name="pwdUsuario"/></td></tr>
-                <tr><td>Situacao: <select name="flAtivo">
-                            <option value="1">Ativo</option>
-                            <option value="0">Inativo</option>
-                        </select><!--<input type="text" name="flAtivo" /></td></tr> 
-                <tr><td align="right"><input type="submit" name="btnSubmit" value="Submit"/></td></tr>
-            </table>  -->  
-        </form>
+    <body>   
+         
+		 	<form class="form-horizontal" action="#" method="post">
+				<div class="sysmobcontent">
+					<div class="control-group">
+						<label class="control-label">Nome::</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="nmEmpreendimento"  />
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">Descrição::</label>
+						<div class="controls">
+							<textarea class="span6" id="dsEmpreendimento" rows="3"></textarea>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">Endereço::</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="endEmpreendimento"  />
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="selectError">Posição::</label>
+						<div class="controls">
+							<select id="posicaoEmpreendimento">
+								<option>NO</option>
+								<option>N</option>
+								<option>NE</option>
+								<option>L</option>
+								<option>SE</option>
+								<option>S</option>
+								<option>SO</option>
+								<option>O</option>
+							</select>
+						</div>
+					</div>
+					<div class="row right">
+						<button type="submit" class="btn btn-primary">Salvar</button>
+						<button class="btn">Cancelar</button>
+					</div>
+            	</div>
+			</form>
     </body>
 </html>

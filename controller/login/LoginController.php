@@ -12,17 +12,16 @@ class LoginController extends SysimobController {
 	
 	public function setContent(){
 		$html =        
-				'<form name="frmLogin" action="#" method="post">
+				'<form name="frmLogin" action="" method="post">
 					<div class="offset4 span3 row sysmoblogin" id="content">
 						<div>
 							<label>CPF</label>
-							<input class="span3 input-small" placeholder="digite seu cpf..." type="text" name="cdCpf" />
+							<input class="span3 input-small" placeholder="digite seu cpf..." type="text" name="usu_cpf" />
 							<label>Senha</label>
-							<input class="span3 input-small" placeholder="digite sua senha..." type="password" name="pwdUsuario" />							
+							<input class="span3 input-small" placeholder="digite sua senha..." type="password" name="usu_password" />							
 						</div>
-						<div class="center row">
-						<input class="btn btn-primary btn-small" type="submit" value="ACESSAR" onclick="'.$this->submit().'" />						
-						<input class="btn btn-small" type="button" value="CANCEL" onclick="'.$this->cancel().'"" />
+						<div class="right row">
+						<input class="btn btn-primary btn-small" type="submit" name="btnAcessar" value="Acessar" />						
 						</div>
 					</div>
 				</form>';
@@ -33,38 +32,43 @@ class LoginController extends SysimobController {
 		return '..:: AC Engenharia - Login ::..';
 	}
 	
-	public function submit(){
-		echo 'executou submit<br />';
-		if (isset($_POST['cdCpf']) && isset($_POST['pwdUsuario'])) {
-		  $entUsuario = new EntidadeUsuario;
-		  $entUsuario->setCpf($_POST['cdCpf']);
-		  echo $_POST['cdCpf'].'<br>';
-		  echo $_POST['pwdUsuario'].'<br>';
-		  $entUsuario->setPwdUsuario($_POST['pwdUsuario']);
-		  echo $entUsuario->getPwdUsuario().'<br>';
+	public function acessar(){
+		var_dump($_POST);
+		if (isset($_POST['usu_cpf']) && isset($_POST['usu_password'])) {
+		  $entUsuario = new EntidadeUsuario();
+		  $entUsuario->setUsuCpf($_POST['usu_cpf']);
+		  $entUsuario->setUsuPassword($_POST['usu_password']);
 		  
 		  $gerUsuario = new GerenciadorUsuario();	  
 		  
-		  if( !$gerUsuario->consultarKey($entUsuario) ) { 		
-		  	  echo 'entrou';
-			  echo('<script type="text/javascript">
-					  alert("Achou CPF!!");
-				   </script>');
-			  header('Location: home/HomeController.php');
-		  } else {
-			  echo 'nao entrou';
-			  echo('<script type="text/javascript">
-					  alert("Cpf ou password incorreto");
-				   </script>');
+		  $usuario = $gerUsuario->consultarKey($entUsuario);
+          var_dump($usuario);		    
+		  if( !$usuario ) { 		
+			echo('<script type="text/javascript">
+			     	  alert("CPF ou Password incorreto!!!");
+				  </script>');
+		  } else {			
+			$usuario = $usuario[0];	
+			session_unset();
+  			$_SESSION['usuario'] = $usuario;
+
+	        if ($usuario['per_codigo'] == 1) {
+			  header('Location:'.$this->url('/perfilC'));
+			} elseif ($usuario['per_codigo'] == 2) {
+			  header('Location:'.$this->url('/perfilA'));
+			} elseif ($usuario['per_codigo'] == 3) {
+			  header('Location:'.$this->url('/perfilCC'));				
+			} else {
+			  unset($_SESSION['usuario']);
+			  //header('Location:'.$this->url('/erro'));
+			}
 		  }
 		}
 	}
 	
-	public function cancel(){
-		echo 'executou cancel<br />';
-	}
-	
   	public function processRequest(){		
-		echo 'executou ProcessRequest<br />';
+		if (isset($_POST['btnAcessar']) && $_POST['btnAcessar'] == 'Acessar'  ) {
+			$this->acessar();
+		}
 	}
 }

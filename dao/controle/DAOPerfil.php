@@ -4,16 +4,15 @@
  *
  * @author Anderson Faro
  */
-//include_once 'dao/ad/OperacaoBase.php';
 include_once 'dao/ad/Conexao.php';
 include_once 'entidade/controle/EntidadePerfil.php';
-class DAOPerfil { //extends OperacaoBase {
+class DAOPerfil {
     
     public function __construct() {}   
     
     public function inserir(EntidadePerfil $pEntidade) {
         try {
-            $query = "INSERT INTO perfil.tb_perfil (dsperfil, flativo) VALUES ($1, $2)";
+            $query = "INSERT INTO sysimob.tb_per_perfil (per_descricao, per_flativo) VALUES ($1, $2)";
             $conexao = new Conexao();
             $conAtiva   = $conexao->getConexao();
             $param = $this->parametrosPerfil($pEntidade, "I");
@@ -27,7 +26,7 @@ class DAOPerfil { //extends OperacaoBase {
     
     public function atualizar(EntidadePerfil $pEntidade) {
         try {
-            $query = "UPDATE perfil.tb_perfil SET dsperfil = $2, flativo = $3 WHERE cdperfil = $1";
+            $query = "UPDATE sysimob.tb_per_perfil SET per_descricao = $2, per_flativo = $3 WHERE per_codigo = $1";
             $conexao = new Conexao();
             $conAtiva   = $conexao->getConexao();
             $param = $this->parametrosPerfil($pEntidade, "U");
@@ -41,7 +40,7 @@ class DAOPerfil { //extends OperacaoBase {
     
     public function deleteKey(EntidadePerfil $pEntidade) {
         try {
-            $query = "DELETE FROM perfil.tb_perfil WHERE cdperfil = $1";
+            $query = "DELETE FROM sysimob.tb_per_perfil WHERE per_codigo = $1";
             $conexao = new Conexao();
             $conAtiva   = $conexao->getConexao();
             $param = $this->parametrosPerfil($pEntidade, "D");
@@ -55,7 +54,7 @@ class DAOPerfil { //extends OperacaoBase {
     
     public function consultarKey(EntidadePerfil $pEntidade) {
         try {
-            $query = "SELECT * FROM perfil.tb_perfil WHERE cdperfil = $1";
+            $query = "SELECT * FROM sysimob.tb_per_perfil WHERE per_codigo = $1";
             $conexao = new Conexao();
             $conAtiva   = $conexao->getConexao();
             $param = $this->parametrosPerfil($pEntidade, "C");
@@ -73,16 +72,16 @@ class DAOPerfil { //extends OperacaoBase {
         $vetPerfil = array();
         switch ($tipo) {
             case "U": 
-                $vetPerfil['$1'] = $entidade->getCdPerfil();
-                $vetPerfil['$2'] = $entidade->getDsPerfil();
-                $vetPerfil['$3'] = $entidade->getFlPerfil();
+                $vetPerfil['$1'] = $entidade->getPerCodigo();
+                $vetPerfil['$2'] = $entidade->getPerDescricao();
+                $vetPerfil['$3'] = $entidade->getPerFlAtivo();
                 break;
             case "I":
-                $vetPerfil['$1'] = $entidade->getDsPerfil();
-                $vetPerfil['$2'] = $entidade->getFlPerfil();
+                $vetPerfil['$1'] = $entidade->getPerDescricao();
+                $vetPerfil['$2'] = $entidade->getPerFlAtivo();
                 break;
             default :
-                $vetPerfil['$1'] = $entidade->getCdPerfil();
+                $vetPerfil['$1'] = $entidade->getPerCodigo();
                 break;
           }
         return $vetPerfil;

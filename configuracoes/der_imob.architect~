@@ -4,16 +4,7 @@
  <print-settings numCopies="1" zoom="1.0" pageNumbersPrinted="true" orientation="1" paperWidth="612.0" paperHeight="792.0" leftBorder="50.0" rightBorder="50.0" topBorder="50.0" bottomBorder="50.0" />
  <project-data-sources>
   <data-source id="DS0">
-   <property key="Logical" value="Desenvolvimento" />
-   <property key="Connection Type" value="PostgreSQL" />
-   <property key="JDBC URL" value="jdbc:postgresql://localhost:5432/desenvolvimento" />
-   <property key="UID" value="postgres" />
-   <property key="PWD" value="diegorabelodefranca" />
-   <property key="ca.sqlpower.architect.etl.kettle.database" value="" />
-   <property key="ca.sqlpower.architect.etl.kettle.port" value="" />
-   <property key="ca.sqlpower.architect.etl.kettle.hostname" value="" />
-   <property key="ca.sqlpower.architect.etl.kettle.repos.login" value="" />
-   <property key="ca.sqlpower.architect.etl.kettle.repos.password" value="" />
+   <property key="Logical" value="Modelo de Dados" />
   </data-source>
   <data-source id="DS2">
    <property key="Connection Type" value="PostgreSQL" />
@@ -40,52 +31,52 @@
     <schema id="SCH5" populated="false" UUID="57cd0887-ea11-4ea8-bf93-dd5975f9a246" name="public" nativeTerm="schema" physicalName="public" >
     </schema>
     <schema id="SCH6" populated="true" UUID="827b70a8-1b30-46db-b436-70713434acf1" name="sysimob" nativeTerm="schema" physicalName="sysimob" >
-     <table id="TAB7" populated="false" UUID="4df0af32-ed32-4277-96e1-f3a015d033bc" name="tb_apa_apartamento" objectType="TABLE" physicalName="tb_apa_apartamento" >
+     <table id="TAB7" populated="false" UUID="94ace7ee-c5fe-4259-9139-072d8a7fe189" name="tb_apa_apartamento" objectType="TABLE" physicalName="tb_apa_apartamento" >
       <remarks></remarks>
       <folder id="FOLTAB71" populated="false" name="Columns" physicalName="Columns" type="1">
-       <index id="IDX8" populated="true" UUID="5c3cdf77-ae44-4cca-81aa-9ee5ed9b9c11" clustered="false" name="tb_apa_apartamento_pk" physicalName="tb_apa_apartamento_pk" primaryKeyIndex="true" unique="false" >
+       <index id="IDX8" populated="true" UUID="1acb2209-b028-4325-b589-b823f6788b81" clustered="false" name="tb_apa_apartamento_pk" physicalName="tb_apa_apartamento_pk" primaryKeyIndex="true" unique="false" >
        </index>
       </folder>
      </table>
-     <table id="TAB9" populated="false" UUID="3bbc1562-bec5-48e5-8f88-fe93a204979d" name="tb_blo_bloco" objectType="TABLE" physicalName="tb_blo_bloco" >
+     <table id="TAB9" populated="false" UUID="04674dde-d878-41e1-9855-dd91e3e9478f" name="tb_blo_bloco" objectType="TABLE" physicalName="tb_blo_bloco" >
       <remarks></remarks>
       <folder id="FOLTAB91" populated="false" name="Columns" physicalName="Columns" type="1">
-       <index id="IDX10" populated="true" UUID="cb839841-9426-4697-b01c-9564fe937e77" clustered="false" name="tb_blo_bloco_pk" physicalName="tb_blo_bloco_pk" primaryKeyIndex="true" unique="false" >
+       <index id="IDX10" populated="true" UUID="4ca3b822-775c-4ab1-81d3-8d3a0191a4b5" clustered="false" name="tb_blo_bloco_pk" physicalName="tb_blo_bloco_pk" primaryKeyIndex="true" unique="false" >
        </index>
       </folder>
      </table>
-     <table id="TAB11" populated="false" UUID="57e866ad-d5bc-4a43-b579-ab6009e33ec0" name="tb_cli_cliente" objectType="TABLE" physicalName="tb_cli_cliente" >
+     <table id="TAB11" populated="false" UUID="1fecfaad-b93f-4985-b43d-e262080b2285" name="tb_cli_cliente" objectType="TABLE" physicalName="tb_cli_cliente" >
       <remarks></remarks>
       <folder id="FOLTAB111" populated="false" name="Columns" physicalName="Columns" type="1">
-       <index id="IDX12" populated="true" UUID="cd022608-0466-4fb1-a2b1-30baedc89230" clustered="false" name="tb_cli_cliente_pk" physicalName="tb_cli_cliente_pk" primaryKeyIndex="true" unique="false" >
+       <index id="IDX12" populated="true" UUID="bdc0033b-4526-41e3-9117-05dd4e8b13a9" clustered="false" name="tb_cli_cliente_pk" physicalName="tb_cli_cliente_pk" primaryKeyIndex="true" unique="false" >
        </index>
       </folder>
      </table>
-     <table id="TAB13" populated="false" UUID="1de35379-1b57-47ed-8409-12498753962f" name="tb_emp_empreendimento" objectType="TABLE" physicalName="tb_emp_empreendimento" >
+     <table id="TAB13" populated="false" UUID="0edd9738-e766-4696-baee-d3ddf2043219" name="tb_emp_empreendimento" objectType="TABLE" physicalName="tb_emp_empreendimento" >
       <remarks></remarks>
       <folder id="FOLTAB131" populated="false" name="Columns" physicalName="Columns" type="1">
-       <index id="IDX14" populated="true" UUID="e0d3f9e9-41a3-446e-8220-ec2f85da1ca1" clustered="false" name="tb_emp_empreendimento_pk" physicalName="tb_emp_empreendimento_pk" primaryKeyIndex="true" unique="false" >
+       <index id="IDX14" populated="true" UUID="5b8ce82c-925d-473d-866b-0a44ff36cb2c" clustered="false" name="tb_emp_empreendimento_pk" physicalName="tb_emp_empreendimento_pk" primaryKeyIndex="true" unique="false" >
        </index>
       </folder>
      </table>
-     <table id="TAB15" populated="false" UUID="8adad315-53df-4d57-9861-36c98226ea59" name="tb_per_perfil" objectType="TABLE" physicalName="tb_per_perfil" >
+     <table id="TAB15" populated="false" UUID="d2f7d3d6-cb0c-46cd-aadb-ef67df535cc3" name="tb_per_perfil" objectType="TABLE" physicalName="tb_per_perfil" >
       <remarks></remarks>
       <folder id="FOLTAB151" populated="false" name="Columns" physicalName="Columns" type="1">
-       <index id="IDX16" populated="true" UUID="e559dede-6f29-493f-87e1-b61405d9b81e" clustered="false" name="tb_per_perfil_pk" physicalName="tb_per_perfil_pk" primaryKeyIndex="true" unique="false" >
+       <index id="IDX16" populated="true" UUID="414e27ac-60f1-49a2-8c59-68ae12a4f573" clustered="false" name="tb_per_perfil_pk" physicalName="tb_per_perfil_pk" primaryKeyIndex="true" unique="false" >
        </index>
       </folder>
      </table>
-     <table id="TAB17" populated="false" UUID="5f97b488-467e-4af7-8f8c-c9a22be311c5" name="tb_res_reserva" objectType="TABLE" physicalName="tb_res_reserva" >
+     <table id="TAB17" populated="false" UUID="88aca3e4-77f9-4be2-85c8-024ae195feaa" name="tb_res_reserva" objectType="TABLE" physicalName="tb_res_reserva" >
       <remarks></remarks>
       <folder id="FOLTAB171" populated="false" name="Columns" physicalName="Columns" type="1">
-       <index id="IDX18" populated="true" UUID="d62d065d-6276-47d6-ab34-00063579ef85" clustered="false" name="tb_res_reserva_pk" physicalName="tb_res_reserva_pk" primaryKeyIndex="true" unique="false" >
+       <index id="IDX18" populated="true" UUID="ccc248a9-a68a-4ae7-8607-617f4bb434c3" clustered="false" name="tb_res_reserva_pk" physicalName="tb_res_reserva_pk" primaryKeyIndex="true" unique="false" >
        </index>
       </folder>
      </table>
-     <table id="TAB19" populated="false" UUID="faa7c92b-1a6c-465c-bdfc-5e00394cd6f9" name="tb_usu_usuario" objectType="TABLE" physicalName="tb_usu_usuario" >
+     <table id="TAB19" populated="false" UUID="b34c8ea5-bd93-44cb-a26b-c35cb24670c3" name="tb_usu_usuario" objectType="TABLE" physicalName="tb_usu_usuario" >
       <remarks></remarks>
       <folder id="FOLTAB191" populated="false" name="Columns" physicalName="Columns" type="1">
-       <index id="IDX20" populated="true" UUID="098839e8-ee07-4ce0-a453-2030f2444d51" clustered="false" name="tb_usu_usuario_pk" physicalName="tb_usu_usuario_pk" primaryKeyIndex="true" unique="false" >
+       <index id="IDX20" populated="true" UUID="5110f75d-2252-49f9-9cc8-8815c9820bc2" clustered="false" name="tb_usu_usuario_pk" physicalName="tb_usu_usuario_pk" primaryKeyIndex="true" unique="false" >
        </index>
       </folder>
      </table>
@@ -222,13 +213,13 @@ L/S -&gt; Leste/Sul</remarks>
   <table id="TAB55" populated="true" UUID="3dccf318-93c7-4bbf-9405-50157e06202b" name="tb_res_reserva" objectType="TABLE" physicalName="tb_res_reserva" >
    <remarks></remarks>
    <folder id="FOLTAB551" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL56" populated="true" UUID="cd29da5a-e493-492b-803d-cf0a889bf5e7" autoIncrement="false" autoIncrementSequenceName="tb_apa_apartamento_apa_numero_seq_1" defaultValue="" name="apa_numero" nullable="0" physicalName="apa_numero" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL56" populated="true" UUID="cd29da5a-e493-492b-803d-cf0a889bf5e7" autoIncrement="false" autoIncrementSequenceName="tb_apa_apartamento_apa_numero_seq" defaultValue="" name="apa_numero" nullable="0" physicalName="apa_numero" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL57" populated="true" UUID="ff128e34-e059-4824-9210-38b39946cb70" autoIncrement="false" autoIncrementSequenceName="tb_blo_bloco_cdBloco_seq_1" defaultValue="" name="blo_id" nullable="0" physicalName="blo_id" precision="0" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL57" populated="true" UUID="ff128e34-e059-4824-9210-38b39946cb70" autoIncrement="false" autoIncrementSequenceName="tb_blo_bloco_cdBloco_seq" defaultValue="" name="blo_id" nullable="0" physicalName="blo_id" precision="0" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL58" populated="true" UUID="7a4f10b7-86a7-4ab3-8f46-95f2dd531029" autoIncrement="false" autoIncrementSequenceName="tb_apa_apartamento_emp_id_seq_1" defaultValue="" name="emp_id" nullable="0" physicalName="emp_id" precision="0" primaryKeySeq="2" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL58" populated="true" UUID="7a4f10b7-86a7-4ab3-8f46-95f2dd531029" autoIncrement="false" autoIncrementSequenceName="tb_apa_apartamento_emp_id_seq" defaultValue="" name="emp_id" nullable="0" physicalName="emp_id" precision="0" primaryKeySeq="2" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     <column id="COL59" populated="true" UUID="f668cd62-ff48-4b5b-a466-bceb37ab0954" autoIncrement="false" autoIncrementSequenceName="tb_res_reserva_cpfCliente_seq" defaultValue="" name="cli_cpf" nullable="0" physicalName="cli_cpf" precision="11" primaryKeySeq="3" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
@@ -334,7 +325,7 @@ L/S -&gt; Leste/Sul</remarks>
    </relationship>
   </relationships>
  </target-database>
- <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="false" target-schema="sysimob"> </ddl-generator>
+ <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="true" target-schema="sysimob"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
  <play-pen zoom="1.0" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">

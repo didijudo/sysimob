@@ -1,0 +1,1 @@
+﻿DROP TABLE sysimob.tb_usu_usuario, sysimob.tb_per_perfil, sysimob.tb_emp_empreendimento, sysimob.tb_apa_apartamento, sysimob.tb_blo_bloco, sysimob.tb_res_reserva, sysimob.tb_cli_cliente CASCADE;

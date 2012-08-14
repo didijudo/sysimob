@@ -35,5 +35,3 @@ class GerenciadorBloco {
         return $dao->consultarEmpreendimento($entidade);
     }
 }
-
-?>

@@ -32,4 +32,32 @@ $('document').ready( function() {
             }
         }
     });
+	
+	$('#posicaoContent').html('');
+	
+	$('#apa_qtdapporandar').blur(function(){
+		var qtdBloco = $('#blo_qtdbloco').val();	
+		var qtdApPorAndar = $('#apa_qtdapporandar').val();
+		
+		$('#posicaoContent').html('');
+		
+		for ( i = 1; i <= qtdBloco; i++){
+			$('#posicaoContent').append('<label class="center label">BLOCO '+i+' - PRIMEIRO ANDAR</label>');
+			for ( j = 1; j <= qtdApPorAndar; j++ ) {
+					$('#posicaoContent').append('<label class="control-label" for="apa_posicao_'+i+j+'">Apartamento 10'+j+'</label>');
+    				$('#posicaoContent').append('<div class="controls">'+
+												'	<select id="apa_posicao_'+i+j+'" name="apa_posicao_'+i+j+'">'+
+												'		<option>NO</option>'+
+												'		<option>N</option>'+
+												'		<option>NE</option>'+
+												'		<option>L</option>'+
+												'		<option>SE</option>'+
+												'		<option>S</option>'+
+												'		<option>SO</option>'+
+												'		<option>O</option>'+
+												'	</select>'+
+												'</div>');
+			}
+		}
+	});
 });

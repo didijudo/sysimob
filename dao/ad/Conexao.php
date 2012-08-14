@@ -7,18 +7,17 @@
  */
 class Conexao {
 
-    private $host = "localhost:5432";
+    private $host = "localhost";
     private $user = "postgres";
     private $pwd = "diegorabelodefranca";
-    private $dbname = "sysimob";
+    private $dbname = "desenvolvimento";
     private $con = null;
 
     function __construct(){} 
 
     private function abrir(){
         try {
-			echo'conexao<br>';
-            $this->con = @pg_connect("host=$this->host user=$this->user "
+            $this->con = pg_connect("host=$this->host user=$this->user "
                     ."password=$this->pwd dbname=$this->dbname");
             return $this->con;
         } catch (Exception $err) {
@@ -44,13 +43,9 @@ class Conexao {
     }
     
     public function getConexao() {
-		echo'getconexao<br>';
-		echo @pg_connection_status($this->con);
-        if (pg_connection_status($this->con) == PGSQL_CONNECTION_OK) {			
-			echo'conexao ativa<br>';
+        if ($this->con) {			
             return $this->con;
         } else {
-			echo'abrindo conexao<br>';
             return $this->abrir();
         }
     }

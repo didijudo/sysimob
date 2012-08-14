@@ -2,7 +2,7 @@
 
 
 /**
- * Gerenciador para controle das regras de negocio referente a tabela tb_apartamento
+ * Gerenciador para controle das regras de negocio referente a tabela tb_apa_apartamento
  *
  * @author Anderson Faro
  */

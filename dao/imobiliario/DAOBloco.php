@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Classe para acesso de dados da tabela tb_bloco
+ * Classe para acesso de dados da tabela tb_blo_bloco
  *
  * @author Anderson Faro
  */
@@ -13,26 +13,35 @@ class DAOBloco {
     
     public function inserir(EntidadeBloco $eBloco) {
         try {
-            $query = "INSERT INTO imob.tb_bloco (idEmpreendimento, cdBloco, stBloco) 
-                        VALUES ($1, $2, $3)";
             $conexao = new Conexao();
             $conAtiva   = $conexao->getConexao();
-            $param = $this->parametrosBloco($eBloco, "I");
-            pg_prepare($conAtiva, "insertBloco", $query);
-            pg_execute($conAtiva, "insertBloco", $param); 
+            
+            pg_query($conAtiva, "BEGIN;");
+            
+            $query = "INSERT INTO sysimob.tb_blo_bloco (blo_id, emp_id, blo_status) VALUES ($1, $2, $3)";            
+			$param = array();
+			$param['$1'] = $eBloco->getBloId();
+			$param['$2'] = $eBloco->getEmpId();
+			$param['$3'] = $eBloco->getBloStatus();
+			//var_dump($param);
+            
+            $result = pg_query_params($conAtiva, $query, $param);
+                        
+            pg_query($conAtiva, "COMMIT;");
+            
             $conexao->fechar();
         } catch (Exception $err) {
+        	pg_query($conAtiva, "ROLLBACK;");
             throw new Exception("Erro:\n".$err->getMessage());
         }
     }
     
     public function atualizar(EntidadeBloco $eBloco) {
         try {
-            $query = "UPDATE imob.tb_bloco 
-                        SET cdBloco = $3, 
-                        stBloco = $4 
-                      WHERE idBloco = $1 
-                        and idEmpreendimento = $2";
+            $query = "UPDATE sysimob.tb_blo_bloco 
+                        SET blo_status = $3 
+                      WHERE blo_id = $1 
+                        and emp_id = $2";
             $conexao = new Conexao();
             $conAtiva   = $conexao->getConexao();
             $param = $this->parametrosBloco($eBloco, "U");
@@ -46,8 +55,8 @@ class DAOBloco {
     
     public function deleteKey(EntidadeBloco $eBloco) {
         try {
-            $query = "DELETE FROM imob.tb_bloco WHERE idBloco = $1 
-                        and idEMpreendimento = $2";
+            $query = "DELETE FROM sysimob.tb_blo_bloco WHERE blo_id = $1 
+                        and emp_id = $2";
             $conexao = new Conexao();
             $conAtiva   = $conexao->getConexao();
             $param = $this->parametrosBloco($eBloco, "D");
@@ -61,7 +70,7 @@ class DAOBloco {
     
     public function consultarKey(EntidadeBloco $eBloco) {
         try {
-            $query = "SELECT * FROM imob.tb_bloco WHERE idBloco = $1 and idEmpreendimento = $2";
+            $query = "SELECT * FROM sysimob.tb_blo_bloco WHERE blo_id = $1 and emp_id = $2";
             $conexao = new Conexao();
             $conAtiva   = $conexao->getConexao();
             $param = $this->parametrosBloco($eBloco, "C");
@@ -75,10 +84,10 @@ class DAOBloco {
     
     public function consultarEmpreendimento(EntidadeBloco $eBloco) {
         try {
-            $query = "SELECT * FROM imob.tb_bloco WHERE idEmpreendimento = $1";
+            $query = "SELECT * FROM sysimob.tb_blo_bloco WHERE emp_id = $1";
             $conexao = new Conexao();
             $conAtiva   = $conexao->getConexao();
-            $param = array('$1' => $eBloco->getIdEmpreendimeto());
+            $param = array('$1' => $eBloco->getIdEmp());
             $resultado = pg_query_params($conAtiva, $query, $param); 
             $conexao->fechar();
             return pg_fetch_all($resultado);
@@ -90,24 +99,20 @@ class DAOBloco {
     private function parametrosBloco(EntidadeBloco $eBloco, $tipo) {
         $vet = array();
         switch ($tipo) {
-            case "I" :
-                $vet['$1'] = $eBloco->getIdEmpreendimeto();
-                $vet['$2'] = $eBloco->getCdBloco();
-                $vet['$3'] = $eBloco->getSetBloco();
+            case "I" :            	
+                $vet['$1'] = $eBloco->getBloId();
+                $vet['$2'] = $eBloco->getEmpId();
+                $vet['$3'] = $eBloco->getBloStatus();
                 break;
             case "U" :
-                $vet['$1'] = $eBloco->_getIdBloco();
-                $vet['$2'] = $eBloco->getIdEmpreendimeto();
-                $vet['$3'] = $eBloco->getCdBloco();
-                $vet['$4'] = $eBloco->getStBloco();
+                $vet['$1'] = $eBloco->getBloId();
+                $vet['$2'] = $eBloco->getEmpId();
                 break;
             default :
-                $vet['$1'] = $eBloco->_getIdBloco();
-                $vet['$2'] = $eBloco->getIdEmpreendimeto();
+                $vet['$1'] = $eBloco->getBloId();
+                $vet['$2'] = $eBloco->getEmpId();
                 break;
         }
     }
     
 }
-
-?>

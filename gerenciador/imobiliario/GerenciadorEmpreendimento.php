@@ -13,7 +13,7 @@ class GerenciadorEmpreendimento {
 
     public function inserir($entidade) {
         $dao = new DAOEmpreendimento();
-        $dao->inserir($entidade);
+        return $dao->inserir($entidade);
     }
     
     public  function atualizar($entidade) {
@@ -36,5 +36,3 @@ class GerenciadorEmpreendimento {
         return $dao->consultarFull();
     }
 }
-
-?>
