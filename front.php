@@ -18,28 +18,40 @@ $path = '';
 
 if($num == 1) {
 	$path = $uri[0].'/';
-	$controller_class = $map['/'.$uri[0]];	
+	$controller_class = $map['/'.$uri[0]];
+
+	if($controller_class != ''){
+		require_once('controller/'.$path.$controller_class.'.php');
+		$controller = new $controller_class();
+	}
+	
 }else {
   	for($i=0; $i<= $num-1; $i++){
 	  	if($uri[$i]==''){
 	  	}else{
-		  	$path .= $uri[$i].'/';
+		  	$path .= '/'.$uri[$i];
 	  	}
   	}
-  	$controller_class = ($uri[$num-1] == '')? $map['/'.$uri[$num-2]] 
-      : $map['/'.$uri[$num-1]];
-}
-if($controller_class != ''){
-	require_once('controller/'.$path.$controller_class.'.php');
-	$controller = new $controller_class();
+  	$controller_class = $map[$path];
+
+  	if($controller_class != ''){
+  		require_once('controller'.$path.'/'.$controller_class.'.php');
+  		$controller = new $controller_class();
+  	}
+  	 
 }
 
 if(!isset($controller)){
 	echo 'ERRO 404 - PÁGINA NÃO ENCONTRADA';
 	header('Status: 404 Not Found');
 }else{
-	$controller->processRequest();
-	$controller->montarPagina();
+	if ($controller instanceof SysimobController) {
+		$controller->processRequest();
+		$controller->montarPagina();		
+	} else {
+		$controller->processRequest();
+	}
+
 }
 
 
